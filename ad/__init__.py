@@ -17,8 +17,14 @@ try:
 except ImportError:
     numpy_installed = False
 
-__version_info__ = (1, 3, 2)
-__version__ = ".".join(list(map(str, __version_info__)))
+from importlib.metadata import PackageNotFoundError, version
+
+
+try:
+    __version__ = version(__name__)
+except PackageNotFoundError:
+    __version__ = "unknown"
+
 
 __author__ = "Abraham Lee"
 

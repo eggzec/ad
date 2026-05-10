@@ -27,9 +27,9 @@ from ad.admath import sin
 x = adnumber(1)
 y = sin(2 * x)
 
-print(y)      # ad(0.9092974268256817)
-print(y.d(x)) # -0.8322936730942848
-print(y.d2(x))# -3.637189707302727
+print(y)  # ad(0.9092974268256817)
+print(y.d(x))  # -0.8322936730942848
+print(y.d2(x))  # -3.637189707302727
 ```
 
 ## Main Features

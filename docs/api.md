@@ -31,6 +31,7 @@ The **jacobian matrix** can be created for multiple dependent objects, where eac
 
 ```python
 from ad import jacobian
+
 jacobian([square, sum_value], [x, u, v])
 ```
 
@@ -56,20 +57,16 @@ pydoc ad.admath
 ### `chol`
 
 ```python
-A = [[25, 15, -5],
-     [15, 18,  0],
-     [-5,  0, 11]]
+A = [[25, 15, -5], [15, 18, 0], [-5, 0, 11]]
 
 L = chol(A)
-U = chol(A, 'upper')
+U = chol(A, "upper")
 ```
 
 ### `lu`
 
 ```python
-A = [[1, 3, 5],
-     [2, 4, 7],
-     [1, 1, 0]]
+A = [[1, 3, 5], [2, 4, 7], [1, 1, 0]]
 
 L, U, P = lu(A)
 ```
@@ -77,9 +74,7 @@ L, U, P = lu(A)
 ### `qr`
 
 ```python
-A = [[12, -51,   4],
-     [ 6, 167, -68],
-     [-4,  24, -41]]
+A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
 
 q, r = qr(A)
 ```
@@ -105,9 +100,7 @@ b = lstsq(A, y)
 ### `inv`
 
 ```python
-A = [[25, 15, -5],
-     [15, 18,  0],
-     [-5,  0, 11]]
+A = [[25, 15, -5], [15, 18, 0], [-5, 0, 11]]
 Ainv = inv(A)
 ```
 
@@ -120,8 +113,10 @@ With this package, a function can be wrapped with functions that return both gra
 ```python
 from ad import gh
 
+
 def my_cool_function(x):
-    return (x[0] - 10.0)**2 + (x[1] + 5.0)**2
+    return (x[0] - 10.0) ** 2 + (x[1] + 5.0) ** 2
+
 
 my_cool_gradient, my_cool_hessian = gh(my_cool_function)
 ```

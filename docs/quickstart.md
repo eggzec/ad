@@ -7,18 +7,19 @@ Calculations involving **differentiation** can be performed even without knowing
 ```python
 from ad import adnumber
 from ad.admath import *  # sin(), etc.
+
 x = adnumber(1)
-print(2*x)
+print(2 * x)
 # ad(2)
-sin(2*x)
+sin(2 * x)
 # ad(0.9092974268256817)
 ```
 
 So far, there should not be anything unexpected, but first and second derivatives can now be accessed through **intuitive methods**:
 
 ```python
-y = sin(2*x)
-y.d(x)   # dy/dx at x=1
+y = sin(2 * x)
+y.d(x)  # dy/dx at x=1
 # -0.8322936730942848
 y.d2(x)  # d2y/dx2 at x=1
 # -3.637189707302727
@@ -47,9 +48,9 @@ import ad
 Numbers that track their derivatives are input just as you would for any normal numeric type. In that sense, they are basically wrapped without really changing their fundamental type.
 
 ```python
-x = adnumber(2)      # acts like an int object
-x = adnumber(2.0)    # acts like a float object
-x = adnumber(2+0j)   # acts like a complex object
+x = adnumber(2)  # acts like an int object
+x = adnumber(2.0)  # acts like a float object
+x = adnumber(2 + 0j)  # acts like a complex object
 ```
 
 Mathematical calculations that follow are interpreted based upon the base numeric types involved.
@@ -68,7 +69,7 @@ print(a)
 abs(a)
 # ad(5.0)
 b = adnumber(1 - 1j)
-a*b
+a * b
 # ad((7+1j))
 a.real, a.imag
 # (3.0, 4.0)
@@ -78,7 +79,7 @@ AD objects that represent real values can also be used to create complex ones:
 
 ```python
 y = adnumber(3.14)
-z = x + y*1j
+z = x + y * 1j
 print(z)
 # ad((2+3.14j))
 ```
@@ -107,6 +108,7 @@ These mathematical functions are found in the `ad.admath` module:
 
 ```python
 from ad.admath import *  # Imports sin(), etc.
+
 sin(x**2)
 # ad(-0.7568024953079282)
 ```
@@ -129,7 +131,7 @@ adnumber([1, [2, 3]])
 adnumber((1, 2))
 # (ad(1), ad(2))
 arr = adnumber(np.array([[1, 2], [3, 4]]))
-2*arr
+2 * arr
 # array([[ad(2), ad(4)],
 #        [ad(6), ad(8)]], dtype=object)
 arr.sum()
@@ -168,10 +170,10 @@ z.d(square)
 Arrays of derivatives can be obtained through the `gradient` and `hessian` methods.
 
 ```python
-u = adnumber(0.1, 'u')
-v = adnumber(3.14, 'v')
+u = adnumber(0.1, "u")
+v = adnumber(3.14, "v")
 
-sum_value = u + 2*v/u
+sum_value = u + 2 * v / u
 sum_value.d()
 # {ad(0.1, u): -626.9999999999999, ad(3.14, v): 20.0}
 
@@ -182,6 +184,7 @@ sum_value.hessian([u, v])
 # [[12559.999999999998, -199.99999999999997], [-199.99999999999997, 0.0]]
 
 from ad import jacobian
+
 jacobian([square, sum_value], [x, u, v])
 # [[4.0, 0.0, 0.0], [0.0, -626.9999999999999, 20.0]]
 ```
@@ -214,8 +217,10 @@ With this package, a function can be conveniently wrapped with functions that re
 ```python
 from ad import gh
 
+
 def my_cool_function(x):
-    return (x[0] - 10.0)**2 + (x[1] + 5.0)**2
+    return (x[0] - 10.0) ** 2 + (x[1] + 5.0) ** 2
+
 
 my_cool_gradient, my_cool_hessian = gh(my_cool_function)
 ```
@@ -231,9 +236,9 @@ res = minimize(
     my_cool_function,
     x0,
     bounds=bnds,
-    method='L-BFGS-B',
+    method="L-BFGS-B",
     jac=my_cool_gradient,
-    options={'ftol': 1e-8, 'disp': False},
+    options={"ftol": 1e-8, "disp": False},
 )
 
 res.x
@@ -259,9 +264,9 @@ res = minimize(
     my_cool_function,
     x0,
     bounds=bnds,
-    method='L-BFGS-B',
+    method="L-BFGS-B",
     jac=my_cool_gradient,
-    options={'ftol': 1e-8, 'disp': True},
+    options={"ftol": 1e-8, "disp": True},
 )
 
 list(res.x)

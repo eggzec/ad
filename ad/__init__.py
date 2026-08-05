@@ -782,7 +782,7 @@ class ADF(_ADFArithmetic, _ADFComparison):
     def __bool__(self) -> bool:
         return bool(self.x)
 
-    def __array_ufunc__(  # noqa: PLW3201
+    def __array_ufunc__(  # ruff: ignore[bad-dunder-method-name]
         self, ufunc: object, method: str, *inputs: object, **kwargs: object
     ) -> object:
         """Support NumPy ufunc dispatch (e.g. ``numpy.sin(x)``) on ADF objects.
@@ -797,11 +797,11 @@ class ADF(_ADFArithmetic, _ADFComparison):
         if method != "__call__":
             return NotImplemented
 
-        import operator  # noqa: PLC0415
+        import operator  # ruff: ignore[import-outside-top-level]
 
-        import numpy as np  # noqa: PLC0415
+        import numpy as np  # ruff: ignore[import-outside-top-level]
 
-        import ad.admath as adm  # noqa: PLC0415
+        import ad.admath as adm  # ruff: ignore[import-outside-top-level]
 
         math_ufunc_map = {
             np.sin: adm.sin,

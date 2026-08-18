@@ -1,4 +1,6 @@
-# ad
+![AD](docs/assets/ad-banner.png)
+
+# AD
 
 **Fast, transparent first- and second-order automatic differentiation for Python**
 

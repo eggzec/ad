@@ -1,4 +1,6 @@
-# `ad`
+![AD](assets/ad-banner.png)
+
+# AD
 
 ![ad](_static/logo.png)
 

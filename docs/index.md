@@ -1,8 +1,8 @@
-![AD](assets/ad-banner.png)
+![AD](https://raw.githubusercontent.com/eggzec/ad/master/docs/assets/ad-banner.png)
 
 # AD
 
-![ad](_static/logo.png)
+![ad](https://raw.githubusercontent.com/eggzec/ad/master/docs/assets/ad-icon.svg){ width="120" }
 
 **Fast, transparent first- and second-order automatic differentiation for Python.**
 

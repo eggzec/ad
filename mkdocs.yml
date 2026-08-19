@@ -15,8 +15,8 @@ theme:
   name: material
   features:
     - content.code.copy
-  logo: _static/favicon.ico
-  favicon: _static/favicon.ico
+  logo: assets/ad-icon.svg
+  favicon: assets/ad-icon.png
 
 markdown_extensions:
   - attr_list

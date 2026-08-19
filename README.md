@@ -1,4 +1,4 @@
-![AD](docs/assets/ad-banner.png)
+![AD](https://raw.githubusercontent.com/eggzec/ad/master/docs/assets/ad-banner.png)
 
 # AD
 

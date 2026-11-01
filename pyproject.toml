@@ -70,7 +70,7 @@ docs = [
     "mkdocstrings[python]>=1.0.4"
 ]
 lint = [
-    "ruff>=0.15,<0.17",
+    "ruff>=0.15,<0.18",
 ]
 test = [
     "pytest>=8.3.5",
